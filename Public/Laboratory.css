@@ -1,0 +1,457 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .header, .special-services, .about-us, .why-choose-us, .special-doctors, .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00A9A5;
+    padding: 15px 30px;
+    color: white;
+  }
+  
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  
+  nav {
+    background-color: #00A9A5; /* Navbar background color */
+    padding: 10px 20px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Space between nav items */
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    position: relative;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    display: block;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Position below the text */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    transition: height 0.3s ease, background 0.3s ease;
+    z-index: -1; /* Ensure the shadow is below the text */
+  }
+  
+  nav ul li a:hover::after {
+    height: 8px; /* Increase the height of the shadow on hover */
+    background: rgba(255, 255, 255, 0.8); /* Brighter shadow color */
+  }
+  
+  nav ul li a:hover {
+    color: #FFA726; /* Change link color on hover */
+  }
+  
+  .btn-contact {
+    display: inline-flex;
+    align-items: center;
+    color: #FFA726;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #FFA726;
+    border-radius: 5px;
+  }
+  
+  .btn-contact i, .btn-contact svg {
+    margin-right: 8px; /* Space between the icon and the text */
+    font-size: 16px; /* Adjust icon size */
+  }
+  
+  
+  .hero {
+    background: #00A9A5;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .hero h1 {
+    font-size: 36px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+  }
+  
+  .btn-services {
+    background-color: #FFA726;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+  }
+  
+  .appointment-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 300px;
+    margin: 20px auto;
+  }
+  
+  .appointment-form h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+  
+  .appointment-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .appointment-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00A9A5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .appointment-form button:hover {
+    background-color: #00796b; /* Darker shade of teal */
+    transform: scale(1.05); /* Slightly enlarges the button */
+  }
+  
+  
+  .special-services {
+    text-align: center;
+    background-color: #F7F7F7;
+    padding: 40px 20px;
+  }
+  
+  .special-services h2 {
+    margin-bottom: 40px;
+    font-size: 28px;
+    color: #333;
+  }
+  
+  .services-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .service {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .service:hover {
+    transform: translateY(-10px);
+  }
+  
+  .service:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    width: 150%;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    transform: translateX(-50%) scaleY(0);
+    transition: transform 0.3s ease;
+    transform-origin: bottom;
+  }
+  
+  .service:hover::after {
+    transform: translateX(-50%) scaleY(1.8);
+  }
+  
+  .service i {
+    font-size: 40px;
+    color: #00A9A5;
+    margin-bottom: 15px;
+  }
+  
+  .service h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .service p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .services-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .service {
+      width: 80%;
+      margin-bottom: 20px;
+    }
+  }
+  
+  
+  .about-us, .why-choose-us, .special-doctors {
+    padding: 40px 20px;
+  }
+  
+  .about-us-content,
+  .why-choose-us {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .about-us-content .text,
+  .why-choose-us .text {
+    flex: 1;
+    padding-right: 20px;
+  }
+  
+  .about-us-content .image,
+  .why-choose-us .image {
+    flex: 1;
+    text-align: right;
+  }
+  
+  .about-us-content .image img,
+  .why-choose-us .image img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  .about-us-content .text h2,
+  .why-choose-us .text h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .about-us-content .text p,
+  .why-choose-us .text ul {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .why-choose-us .text ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .why-choose-us .text ul li {
+    margin-bottom: 10px;
+  }
+  
+  .why-choose-us .text ul li strong {
+    color: #333;
+  }
+  
+  .special-doctors .doctor-profiles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .special-doctors .doctor {
+    text-align: center;
+    width: 30%;
+  }
+  
+  .special-doctors .doctor img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .footer-content {
+    background-color: #E0F7FA;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .footer-content p {
+    margin: 5px 0;
+  }
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .footer-links ul li {
+    display: inline-block;
+  }
+  
+  .footer-links ul li a {
+    color: #FFA726;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .footer-links ul li a i {
+    margin-right: 8px;
+    font-size: 20px;
+  }
+  
+  .footer-links ul li a:hover {
+    background-color:#00A9A5;
+    color: white;
+    border-color: #FFA726;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-links ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer-links ul li a {
+      font-size: 16px;
+    }
+  
+    .footer-links ul li a i {
+      font-size: 18px;
+    }
+  }
+  
+  
+  .about-us {
+    padding: 60px 0;
+    background: url('images/background.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .about-us::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust opacity and color here */
+    z-index: -1;
+  }
+  
+  .about-us .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  span{
+    color:#FFA726
+  }
+  
+
+.lab-tests {
+    padding: 40px 20px;
+    background-color: #F7F7F7;
+    text-align: center;
+}
+
+.lab-tests h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.lab-tests p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.test {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.test h2 {
+    font-size: 24px;
+    color: #00A9A5;
+    margin-bottom: 10px;
+}
+
+.test p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}/* Remove underline from all links */
+a {
+  text-decoration: none;
+}
+
+/* Optional: Add hover effect to maintain usability */
+a:hover {
+  text-decoration: underline; /* Optional, if you want to show underline on hover */
+}
+

@@ -1,0 +1,298 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header, .special-services, .about-us, .why-choose-us, .special-doctors, .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00A9A5;
+    padding: 15px 30px;
+    color: white;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav {
+    background-color: #00A9A5;
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    display: block;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    transition: height 0.3s ease, background 0.3s ease;
+    z-index: -1;
+}
+
+nav ul li a:hover::after {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+nav ul li a:hover {
+    color: #FFA726;
+}
+
+/* Booking Form Styles */
+.booking-form {
+    background-color: #F7F7F7;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.booking-form .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.booking-form h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.booking-form p {
+    font-size: 18px;
+    color: #555;
+    margin: 10px 0;
+}
+
+.booking-form form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.booking-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.booking-form button {
+    width: 100%;
+    padding: 10px;
+    margin-left: 10px;
+    background-color: #00A9A5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.booking-form button:hover {
+    background-color: #00796b;
+    transform: scale(1.05);
+}
+
+/* Doctor Section */
+.doctors {
+    padding: 40px 20px;
+    background-color: #F7F7F7;
+}
+
+.doctors h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #333;
+}
+
+.doctors p {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.doctor-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.doctor {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: calc(25% - 20px);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.doctor img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.doctor-info h2 {
+    font-size: 22px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.doctor-info p {
+    font-size: 16px;
+    color: #555;
+}
+
+.btn-book {
+    display: inline-block;
+    background-color: #00A9A5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    
+}
+
+.btn-book:hover {
+    background-color: #00796b;
+}
+
+/* Footer */
+.footer-content {
+    background-color: #E0F7FA;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-content .footer-logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links ul li {
+    display: inline-block;
+}
+
+.footer-links ul li a {
+    color: #FFA726;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.footer-links ul li a i {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.footer-links ul li a:hover {
+    background-color: #00A9A5;
+    color: white;
+    border-color: #FFA726;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .doctor-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .doctor {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .footer-links ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links ul li a {
+        font-size: 16px;
+    }
+
+    .footer-links ul li a i {
+        font-size: 18px;
+    }
+}
+
+span {
+    color: #FFA726;
+}
+
+/* About Us Section */
+.about-us {
+    padding: 60px 0;
+    background: url('images/background.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.about-us::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: -1;
+}

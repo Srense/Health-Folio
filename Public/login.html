@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css"> <!-- Link to Font Awesome -->
+    <link rel="stylesheet" href="login.css"> <!-- Your existing CSS -->
+    <style>
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Login Overlay Styles */
+        .login-overlay {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            display: none; /* Hidden by default */
+            z-index: 9999; /* Ensure it's on top of other content */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .login-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .login-content h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .login-content p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .login-content button {
+            padding: 10px 20px;
+            background-color: #00A9A5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-content button:hover {
+            background-color: #00796b; /* Darker shade of teal */
+        }
+        
+        /* Disable scroll on body */
+        body.no-scroll {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="no-scroll">
+    <div class="background-image"></div>
+    <div class="login-container">
+        <div class="login-form">
+            <form id="loginForm" action="#" method="post">
+                <div class="form-group">
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-submit">Login</button>
+                <div class="login-footer">
+                    <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Save user info in sessionStorage or handle login state
+                    sessionStorage.setItem('user', JSON.stringify(data.user));
+                    window.location.href = 'index.html'; // Redirect to homepage after successful login
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while logging in.');
+            }
+        });
+    </script>
+</body>
+</html>

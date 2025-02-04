@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Website</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Login Overlay Styles */
+        .login-overlay {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            display: none; /* Hidden by default */
+            z-index: 9999; /* Ensure it's on top of other content */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .login-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .login-content h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .login-content p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .login-content button {
+            padding: 10px 20px;
+            background-color: #00A9A5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-content button:hover {
+            background-color: #00796b; /* Darker shade of teal */
+        }
+        
+        /* Disable scroll on body */
+        body.no-scroll {
+            overflow: hidden;
+        }
+        /* Profile Icon */
+
+        #profileIcon {
+         display: none; /* Hidden by default */
+         margin-left: auto; /* Align to the right */
+         margin-right: 20px; /* Space from the contact button */
+         }
+
+       #profileIcon.visible {
+        display: inline-block; /* Show if the user is logged in */
+        font-size: 24px; /* Adjust icon size */
+         }
+
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header id="home">
+        <div class="navbar">
+            <div class="logo">Health<span>Care</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li id="profileIcon" class="hidden">
+                        <a href="profile.html"><i class="fas fa-user-circle"></i></a>
+                    </li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn-contact"><i class="fas fa-envelope"></i> Contact Us</a>
+        </div>
+        <div class="hero">
+            <h1>Providing an Exceptional Patient Experience</h1>
+            <p>Welcome, where exceptional patient experiences are our priority. Trust us with your health and experience the difference.</p>
+            <a href="#services" class="btn-services">See Services</a>
+        </div>
+        <div class="appointment-form">
+            <h2>Book Now</h2>
+            <form>
+                <input type="text" placeholder="First Name">
+                <input type="text" placeholder="Last Name">
+                <input type="text" placeholder="Address">
+                <input type="text" placeholder="Phone No.">
+                <button type="submit">Book Appointment</button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Special Services Section -->
+    <section id="services" class="special-services">
+        <h2>Our Special Services</h2>
+        <div class="services-container">
+            <a href="/Laboratory" class="service">
+                <i class="fas fa-vial"></i>
+                <h3>Laboratory Test</h3>
+                <p>Accurate Diagnostics, Swift Results. Experience top-notch Laboratory Testing at our facility.</p>
+            </a>
+            <a href="/HealthCheck" class="service">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Health Check</h3>
+                <p>Our thorough assessments and expert evaluations help you stay proactive about your health.</p>
+            </a>
+            <a href="/GeneralDentistry" class="service">
+                <i class="fas fa-tooth"></i>
+                <h3>General Dentistry</h3>
+                <p>Experience comprehensive oral care with Dentistry. Trust us to keep your smile healthy and bright.</p>
+            </a>
+            <a href="/PrimaryCare" class="service">
+                <i class="fas fa-stethoscope"></i>
+                <h3>Primary Care</h3>
+                <p>Comprehensive and personalized care to manage your overall health. Our experts are here to support your well-being.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-us">
+        <div class="container">
+            <div class="about-us-content">
+                <div class="text">
+                    <h2>About Us</h2>
+                    <p>Welcome to our healthcare website, your one-stop destination for reliable and comprehensive health care information. We are committed to promoting wellness and providing valuable resources to empower you on your health journey.</p>
+                    <p>Explore our extensive collection of expertly written articles and guides covering a wide range of health topics. From understanding common medical conditions to tips for maintaining a healthy lifestyle, our content is designed to educate, inspire, and support you in making informed choices for your health.</p>
+                    <p>Discover practical health tips and lifestyle advice to optimize your physical and mental well-being. We believe that small changes can lead to significant improvements in your quality of life, and we're here to guide you on your path to a healthier and happier you.</p>
+                </div>
+                <div class="image">
+                    <img src="about1.png" alt="About Us">
+                </div>
+            </div>
+
+            <div class="why-choose-us">
+                <div class="image">
+                    <img src="about2.jpg" alt="Doctor">
+                </div>
+                <div class="text">
+                    <h3>Why Choose Us</h3>
+                    <ul>
+                        <li><strong>Intensive Care:</strong> Our Intensive Care Unit is equipped with advanced technology and staffed by a team of skilled professionals.</li>
+                        <li><strong>Free Ambulance Car:</strong> A compassionate initiative to prioritize your health and well-being without any financial burden.</li>
+                        <li><strong>Medical and Surgical:</strong> Our Medical and Surgical services offer advanced healthcare solutions to address all your medical needs.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-logo">Health<span>Care</span></div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                   
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <p>Kharar, MOHALI</p>
+                <p>support@care.com</p>
+                <p>+91(0) 123 456 789</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Overlay -->
+    <div id="login-overlay" class="login-overlay">
+        <div class="login-content">
+            <h2>Please Log In</h2>
+            <p>You need to log in to continue accessing the page.</p>
+            <button id="login-close">Log In</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var overlay = document.getElementById('login-overlay');
+            var loginCloseButton = document.getElementById('login-close');
+            const user = sessionStorage.getItem('user');
+
+            if (user) {
+                // Remove login overlay and enable scrolling if the user is logged in
+                overlay.style.display = 'none';
+                document.body.classList.remove('no-scroll');
+                document.getElementById('profileIcon').classList.add('visible');
+            } else {
+                // Show overlay and disable scroll if the user is not logged in
+                overlay.style.display = 'block';
+                document.body.classList.add('no-scroll');
+
+                // Redirect to login page when login button is clicked
+                loginCloseButton.addEventListener('click', function() {
+                    window.location.href = 'login.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
