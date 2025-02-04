@@ -10,7 +10,7 @@ const session = require('express-session');
 const app = express();
 const port = 3000;
 
-// Sample data for doctors
+
 const doctors = [
     {
         id: 1,
@@ -70,10 +70,10 @@ const doctors = [
     }
 ];
 
-// In-memory storage for users (for demonstration; use a database in production)
+
 let users = [];
 
-// Setup Excel file for tasks if it doesn't exist
+
 const excelFilePath = path.join(__dirname, 'tasks.xlsx');
 const initializeExcelFile = async () => {
     if (!fs.existsSync(excelFilePath)) {
@@ -90,19 +90,19 @@ const initializeExcelFile = async () => {
 };
 initializeExcelFile();
 
-// Middleware
+
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.json()); // For parsing application/json
+app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Session setup
+// setting the Session
 app.use(session({
-    secret: 'Rizwan@1122', // Replace with a secure random key
+    secret: 'Rizwan@1122', 
     resave: false,
     saveUninitialized: true
 }));
 
-// Define a mapping of pages to HTML files
+//mapping part
 const pageMappings = {
     'Home': 'index.html',
     'AboutUs': 'about.html',
@@ -115,20 +115,20 @@ const pageMappings = {
     'Book': 'Book.html'
 };
 
-// Route to handle page navigation
+
 app.get('/:page', (req, res) => {
     const page = req.params.page;
-    const targetPage = pageMappings[page] || 'index.html'; // Fallback to index.html if no match
+    const targetPage = pageMappings[page] || 'index.html'; 
     res.sendFile(path.join(__dirname, 'public', targetPage));
 });
 
-// Route to handle specific test details (optional)
+
 app.get('/test-details/:testName', (req, res) => {
     const testName = req.params.testName;
     res.redirect(`/Doctors1.html?testName=${testName}`);
 });
 
-// Route to get doctor data by ID
+
 app.get('/api/doctors/:id', (req, res) => {
     const doctorId = parseInt(req.params.id);
     const doctor = doctors.find(d => d.id === doctorId);
@@ -140,22 +140,22 @@ app.get('/api/doctors/:id', (req, res) => {
     }
 });
 
-// Route to handle appointment booking
+
 app.post('/api/book-now-form', (req, res) => {
     const { firstName, lastName, address, phone, email, doctorName, appointmentDate, timeSlot } = req.body;
 
-    // Generate a payment URL (example URL; replace with your actual payment URL)
+   
     const paymentUrl = `https://api.qrserver.com/v1/create-qr-code/?data=upi://pay?pa=9631484236@ptaxis&pn=Sohel%20Rizwan&mc=0000&mode=02&purpose=00&orgid=159761&cust=1405135095&size=200x200`;
 
-    // Respond with the payment URL
+    
     res.json({ paymentUrl });
 });
 
-// Route to handle payment confirmation
+
 app.post('/api/payment-confirmation', (req, res) => {
     const { email, doctorName, appointmentDate, timeSlot } = req.body;
 
-    // Create transporter
+    
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -183,39 +183,39 @@ app.post('/api/payment-confirmation', (req, res) => {
     });
 });
 
-// Route to handle user sign-up
+
 app.post('/api/signup', async (req, res) => {
     const { username, password } = req.body;
-    // Simple validation (add more robust checks in production)
+   
     if (!username || !password) {
         return res.status(400).json({ message: 'Username and password are required' });
     }
 
-    // Check if user already exists
+   
     const existingUser = users.find(user => user.username === username);
     if (existingUser) {
         return res.status(400).json({ message: 'User already exists' });
     }
 
-    // Hash password and save user data
+ 
     const hashedPassword = await bcrypt.hash(password, 10);
     users.push({ username, password: hashedPassword });
     res.json({ message: 'Account created successfully' });
 });
 
-// Route to handle user login
+
 app.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
 
-    // Simple validation (add more robust checks in production)
+   
     if (!username || !password) {
         return res.status(400).json({ message: 'Username and password are required' });
     }
 
-    // Check if user exists and password matches
+   
     const user = users.find(user => user.username === username);
     if (user && await bcrypt.compare(password, user.password)) {
-        // Set session
+        
         req.session.user = user;
         res.json({ message: 'Login successful', user });
     } else {
@@ -223,7 +223,7 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
-// Route to handle user logout
+
 app.post('/api/logout', (req, res) => {
     req.session.destroy(err => {
         if (err) {
@@ -233,10 +233,10 @@ app.post('/api/logout', (req, res) => {
     });
 });
 
-// Route to save task to Excel
+
 app.post('/saveTask', async (req, res) => {
     const { username, task, priority } = req.body;
-    const status = 'Pending'; // Default status
+    const status = 'Pending'; 
 
     if (!username || !task || !priority) {
         return res.status(400).json({ message: 'Username, task, and priority are required' });
@@ -247,7 +247,7 @@ app.post('/saveTask', async (req, res) => {
         await workbook.xlsx.readFile(excelFilePath);
         const worksheet = workbook.getWorksheet('Tasks');
 
-        // Add new task to worksheet
+        
         worksheet.addRow({ username, task, priority, status });
         await workbook.xlsx.writeFile(excelFilePath);
 
@@ -259,7 +259,7 @@ app.post('/saveTask', async (req, res) => {
 });
 
 
-// Start server
+// Starting the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
